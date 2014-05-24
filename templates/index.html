@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Bootswatch: Lumen</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}">
+    <script type="text/javascript" src="{{ url_for('static', filename='js/jquery-2.1.1.min.js')}}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/ajax.js')}}"></script>
+  </head>
+<body>
+
+<p class = "equale">
+<div class = "container">
+<form class="form-horizontal" form action="/equale" onsubmit="send()" method='post' name="equale">
+{{ form.csrf_token }} 
+<fieldset>
+
+<!-- Form Name -->
+<legend>Решение показательных неравенств</legend>
+
+<!-- Text input-->
+<div class="control-group controls-row">
+  <label class="control-label" for="a_input">Введите число А</label>
+  <div class="controls">
+    {{form.number_a_field}}
+    
+  </div>
+</div>
+
+<!-- Select Basic -->
+<div class="control-group">
+  <label class="control-label" for="selectbasic">Выберите знак</label>
+  <div class="controls">
+    {{form.basic_field}}
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="control-group">
+  <label class="control-label" for="b_input">Введите число B</label>
+  <div class="controls">
+    {{form.number_b_field}}
+
+ <label class="control-label" for="singlebutton"></label>
+  <div class="controls">
+    <input type="submit" value="Решить" class="btn btn-success">
+    
+  </div>
+  {% for error in form.errors.number_a_field %}
+        <span style="color: red;">[{{error}}]</span>
+        {% endfor %}<br>
+   {% for error in form.errors.number_b_field %}
+        <span style="color: red;">[{{error}}]</span>
+        {% endfor %}<br>
+    {% for error in form.errors.basic_field %}
+        <span style="color: red;">[{{error}}]</span>
+        {% endfor %}<br>
+</div>
+
+  </div>
+</div>
+
+</fieldset>
+</form>
+</container>
+
+<h2>Решение</h2>
+
+ <div class="form-group">
+                    <label for="textArea" class="col-lg-2 control-label">Ход решения</label>
+                    <div class="col-lg-6">
+			{% if decree %}
+			<textarea class="form-control" rows="6" id="decree">{{ decree }} </textarea>
+			{% else %}<textarea class="form-control" rows="6" id="decree">None...</textarea>{% endif %}
+
+
+<div class="form-group">
+                  <div class="input-group">
+                    <span class="input-group-addon">Ответ</span>
+		    {% if answer %}
+                    <input type="text" value = "{{ answer }}" class="form-control" id="answer">
+                    <span class="input-group-btn">
+                    </span>
+		   {% else %}
+			<input type="text" value = "None" class="form-control" id="answer">
+                    	<span class="input-group-btn">
+                    	</span>
+		   {% endif %}
+                  </div>
+                </div>
+
+</body>
+</p>
+
+
+
+</body>

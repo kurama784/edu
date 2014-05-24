@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Bootswatch: Lumen</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href={{ url_for('static', filename='bootstrap.css') }}>
+    <link rel="stylesheet" href={{ url_for('static', filename='bootstrap.min.css') }}>
+  </head>
+<body>
+<h2>Решение</h2>
+
+ <div class="form-group">
+                    <label for="textArea" class="col-lg-2 control-label">Ход решения</label>
+                    <div class="col-lg-6">
+		     {% if decree %}
+                      <textarea class="form-control" value = "{{ decree }}" rows="6" id="textArea"></textarea>
+		     {% else %}
+		     <textarea class="form-control" value = "{{ decree }}" rows="6" id="textArea"></textarea>
+		     {% endif %}
+
+<div class="form-group">
+                  <div class="input-group">
+                    <span class="input-group-addon">Ответ</span>
+                    <input type="text" class="form-control">
+                    <span class="input-group-btn">
+                      <button class="btn btn-default" type="button">Еще раз!</button>
+                    </span>
+                  </div>
+                </div>
+
+</body>
