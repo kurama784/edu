@@ -1,4 +1,4 @@
-equal
+edu site
 =====
-Equale decree with web-interface.
+Site for schools, colleges and more.
 Written on Python + Flask + Wtforms
